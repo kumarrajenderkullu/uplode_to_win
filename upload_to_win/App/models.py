@@ -5,7 +5,7 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    email = models.CharField(max_length=255)
-    #password = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    password = models.CharField(max_length=40,default='DEFAULT VALUE')
+    name = models.CharField(max_length=120)
+    last_name = models.CharField(max_length=120)
