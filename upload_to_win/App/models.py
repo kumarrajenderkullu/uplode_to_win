@@ -9,3 +9,12 @@ class User(models.Model):
     password = models.CharField(max_length=40,default='DEFAULT VALUE')
     name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)
+
+class SessionToken(models.Model):
+	user = models.ForeignKey(User)
+	session_token = models.CharField(max_length=255)
+	created_on = models.DateTimeField(auto_now_add=True)
+	is_valid = models.BooleanField(default=True)
+
+	def create_token(self):
+		self.session_token = uuid.uuid4()
