@@ -1,14 +1,32 @@
 from django import forms
+from models import UserModel, PostModel, LikeModel, CommentModel
 
-from upload_to_win.App.models import User
 
-
-class signupform(forms.ModelForm):
-    class meta:
-        model=User
-        field=['email','password','name','last_name ']
+class SignUpForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields=['email','username','name','password']
 
 class LoginForm(forms.ModelForm):
-        class Meta:
-            model = User
-            fields = ['email', 'password']
+    class Meta:
+        model = UserModel
+        fields = ['username', 'password']
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = PostModel
+        fields=['image', 'caption']
+
+
+class LikeForm(forms.ModelForm):
+
+    class Meta:
+        model = LikeModel
+        fields=['post']
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = CommentModel
+        fields = ['comment_text', 'post']
