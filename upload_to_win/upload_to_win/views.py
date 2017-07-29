@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.hashers import make_password, check_password
 from django.shortcuts import render
-from App.models import User,SessionToken
-from App.forms import signupform,LoginForm
-from django.contrib.auth.hashers import make_password,check_password
+
+from upload_to_win.App.forms import signupform, LoginForm
+from upload_to_win.App.models import User, SessionToken
+
+
 # Create your views here.
 def home_view(request):
     # Business Logic
