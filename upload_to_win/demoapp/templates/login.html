@@ -1,0 +1,89 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Sign Up</title>
+
+		<meta charset="utf-8">
+    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    		<meta name="viewport" content="width=device-width, initial-scale=1"
+
+		<!--Bootstrap-->
+		<link href="css/bootstrap.css" rel="stylesheet">
+        <style>
+             body{
+    background:url('2.jpg');
+    background-size:100% 620px;
+    padding-top:80px;
+}
+.nav{
+    color:white;
+    font-size: 30px;
+   padding-top:20px;
+   padding-left:60px;
+    background:#7733FF    ;
+    width:470px;
+    height:500px;
+    margin: auto;
+    border-radius: 10px;
+    opacity: .9;
+}
+.main input{
+margin-top:5px;
+     width:200px;
+	 height:30px;
+	 font-size:25px;
+	 border-radius:5px;
+}
+
+.con input{
+margin-top:10px;
+margin-left:8px;
+     width:200px;
+	 height:30px;
+	 font-size:25px;
+	 border-radius:5px;
+}
+.nav input[type="submit"]{
+     margin-top:20px;
+     width:150px;
+	 border-radius:50px;
+	 margin-left:135px;
+	 height:50px;
+	 background:#FF33FC     ;
+	 color:white;
+}
+.nav input[type="submit"]:hover{
+	 background:white;
+	 color:#FF337A  ;
+}
+
+
+
+        </style>
+	</head>
+	<body>
+		<div class="nav">
+			<h1>Instagram Clone</h1><hr>
+            <h3 style="margin-right:50px" align="center">Log In</h3>
+
+			<form method="post">
+			{% csrf_token  %}
+				<div class="main">
+					<label for="username">Username: </label>
+					<input id="username" type="text" name="Username" value="{{ Username  }}">
+				</div>
+				<div class="con">
+					<label for="password">Password: </label>
+					<input id="password" type="password" name="Password" value="{{ Password }}">
+				</div>
+				<input type="submit" value="Sign Up">
+			</form>
+		</div>
+
+		<!--Javascript files-->
+		<!--Jquery library-->
+		<script src="js/jquery-3.2.1.js"></script>
+		<!--Bootstrap js Library-->
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>

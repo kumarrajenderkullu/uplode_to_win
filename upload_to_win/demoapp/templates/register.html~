@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Registration form</title>
+    <link rel="stylesheet" type="text/css" href="css.css"></link>
+</head>
+   
+    
+    <body>
+        <div class="nav">
+            Registration Form
+            <form>
+            <input type="text" placeholder="First name" name="Fname">
+            <input type="text" placeholder="Last name" name="Lname"><br>
+            <input type="email" placeholder="Enter email" name="email"><br>
+            <input type="text" placeholder="Mobile No" name="mob"><br>
+            <input type="Password" placeholder="Enter your password" name="pass"><br>
+            <input type="password" placeholder="Re-Enter your password" name="pass">
+            <input type="radio" value="male" name="sex">Male
+            <input type="radio" value="female" name="sex">Female<br>
+            <input type="checkbox" name="">Are you sure<br>
+            <input type="submit" name="button" value="Register"> 
+            </form>
+        </div>  
+    </body>
+</html>

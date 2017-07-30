@@ -1,0 +1,6 @@
+
+.idea/*
+*.pyc
+*.pyo
+migratipons/*
+settings.py/*
