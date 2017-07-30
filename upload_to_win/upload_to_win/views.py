@@ -7,7 +7,7 @@ from datetime import timedelta
 from demoapp.forms import SignUpForms,LoginForm,PostForm,CommentForm,LikeForm
 from demoapp.models import UserModel, SessionToken, PostModel,CommentModel,LikeModel
 from django.contrib.auth.hashers import make_password,check_password
-from instagram.settings import BASE_DIR
+from upload_to_win.settings import BASE_DIR
 from django.utils import timezone
 from imgurpython import ImgurClient
 # Create your views here.
@@ -92,7 +92,7 @@ def post_view(request):
 
                 path = str(BASE_DIR+"//"+post.image.url)
 
-                client = ImgurClient('d2d18027cc82a9e', '455ca114d7df83fad4fae1091316dfab42087c18')
+                client = ImgurClient('918e8552c6faccc', '38babe210df5ed9cde17605ac646b24a27f2b58a')
                 post.image_url = client.upload_from_path(path,anon=True)['link']
                 post.save()
 

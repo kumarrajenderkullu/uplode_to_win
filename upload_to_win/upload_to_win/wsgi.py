@@ -1,5 +1,5 @@
 """
-WSGI config for instagram project.
+WSGI config for upload_to_win project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "instagram.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "upload_to_win.settings")
 
 application = get_wsgi_application()
