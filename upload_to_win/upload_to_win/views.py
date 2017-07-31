@@ -10,6 +10,9 @@ from django.contrib.auth.hashers import make_password,check_password
 from upload_to_win.settings import BASE_DIR
 from django.utils import timezone
 from imgurpython import ImgurClient
+import yagmail
+import ctypes
+import tkMessageBox
 from django.contrib import messages
 # Create your views here.
 def signup_view(request):
@@ -24,7 +27,16 @@ def signup_view(request):
             # insert data to db
             new_user = UserModel(Name=Name,Password=make_password(Password),Username=Username, Email=Email)
             new_user.save()
-     #--------------------------here we give conditions which open success page or failed page ----------------------------------
+            # sending welcome Email To User That Have Signup Successfully
+            message = "Welcome!! Your Account has been SSuccessfully Created At p2p marketplace by Manish Kumar." \
+                      "It is the place Where You Can Upload the Images Of the Product For Sale."
+            yag = yagmail.SMTP('kumarrajenderkullu@gmail.com', 'luvmomdad11')
+            yag.send(to=Email, subject='Upload to win', contents=message)
+            ctypes.windll.user32.MessageBoxW(0, u"You are Successfully Registered.",
+                                             u"Done", 0)
+            #   SUCCESSFULLY SEND EMAIL TO THE USER WHO HAS SIGNUP.
+
+            #--------------------------here we give conditions which open success page or failed page ----------------------------------
             template_name = 'success.html'
         else:
             template_name = 'failed.html'
@@ -139,7 +151,12 @@ def like_view(request):
             post_id = form.cleaned_data.get('post').id
             existing_like = LikeModel.objects.filter(post_id=post_id, user=user).first()
             if not existing_like:
-                LikeModel.objects.create(post_id=post_id, user=user)
+                like=LikeModel.objects.create(post_id=post_id, user=user)
+                email = like.post.user.Email
+                # sending welcome Email To User That Have Commented Successfully
+                message = "Hii!.. Someone Liked your Post on Upload To Win."
+                yag = yagmail.SMTP('kumarrajenderkullu@gmail.com', 'luvmomdad11')
+                yag.send(to=email, subject='Liked Your Post', contents=message)
             else:
                 existing_like.delete()
 
