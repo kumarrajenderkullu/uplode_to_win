@@ -39,13 +39,16 @@ margin-right:5px;
     <form method="post" action="/post/" align="left">
         {% csrf_token %}
         <input type="submit" class="btn-default btn" value="Create Post" align="left">
-        <input type="submit" class="log-out" value="LOG OUT" align="right">
 
+
+    </form>
+    <form method="get" action="/post/" align="right">
+        <input type="submit" class="log-out" value="LOG OUT" align="right"><hr>
     </form>
     {% for post in posts %}
 
 
-        <h3> Posted by:{{ post.user.username }} </h3>
+        <h3> Posted by:{{ post.user.Username }} </h3>
         <p>[{{ post.created_on }}]</p>
 
         <img style="display:inline-block; width:350px; height:300px;"
@@ -78,7 +81,7 @@ margin-right:5px;
 
         <div class="cc">
             {% for comment in post.comments %}
-                <p><b>{{ comment.user.username }} [{{ comment.created_on }}]:</b> {{ comment.comment_text }}</p><hr>
+                <p><b>{{ comment.user.Username }} [{{ comment.created_on }}]:</b> {{ comment.comment_text }}</p><hr>
             {% endfor %}
         </div>
 

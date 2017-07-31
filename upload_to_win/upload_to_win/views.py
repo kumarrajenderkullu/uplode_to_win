@@ -99,7 +99,8 @@ def post_view(request):
                 post.save()
 
                 return redirect('/feed/')
-
+        elif request.method == 'GET':
+            return redirect('/logout/')
         else:
             form = PostForm()
         return render(request, 'post.html', {'form' : form})
@@ -168,7 +169,6 @@ def comment_view(request):
 
 
 
-    return redirect('/logout')
 
 # -----------------------------------------------Create a functions for validating the session---------------------------------------------
 def check_validation(request):
@@ -181,3 +181,6 @@ def check_validation(request):
                 return session.user
     else:
         return None
+
+def logout_view(request):
+    return render(request,'logout.html')
