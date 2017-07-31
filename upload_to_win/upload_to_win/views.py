@@ -10,6 +10,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from upload_to_win.settings import BASE_DIR
 from django.utils import timezone
 from imgurpython import ImgurClient
+from django.contrib import messages
 # Create your views here.
 def signup_view(request):
     #------------------------------here is the logic of the functions--------------------------------------------------------
@@ -62,6 +63,7 @@ def login_view(request):
                     #successfully Login
 
                     template_name = 'login_success.html'
+                    tkMessageBox.showinfo(title="Greetings", message="Hello World!")
                 else:
 
                     #Failed
@@ -166,6 +168,7 @@ def comment_view(request):
 
 
 
+    return redirect('/logout')
 
 # -----------------------------------------------Create a functions for validating the session---------------------------------------------
 def check_validation(request):

@@ -13,6 +13,7 @@ urlpatterns = [
     url('comment/', comment_view),
     url(r'^admin/', admin.site.urls),
     url(r'^signup',signup_view),
-    url(r'^login',login_view)
+    url(r'^login',login_view),
+
 
 ]

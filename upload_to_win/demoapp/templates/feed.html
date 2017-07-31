@@ -36,12 +36,12 @@ margin-right:5px;
 </head>
 <body>
     <div class="nav" align="center">
-    <form method="post" action="/post/" align="center">
+    <form method="post" action="/post/" align="left">
         {% csrf_token %}
-        <input type="submit" class="btn-default btn" value="Create Post"><hr>
+        <input type="submit" class="btn-default btn" value="Create Post" align="left">
+        <input type="submit" class="log-out" value="LOG OUT" align="right">
+
     </form>
-
-
     {% for post in posts %}
 
 
