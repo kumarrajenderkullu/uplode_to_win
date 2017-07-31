@@ -28,8 +28,7 @@ def signup_view(request):
             new_user = UserModel(Name=Name,Password=make_password(Password),Username=Username, Email=Email)
             new_user.save()
             # sending welcome Email To User That Have Signup Successfully
-            message = "Welcome!! Your Account has been SSuccessfully Created At p2p marketplace by Manish Kumar." \
-                      "It is the place Where You Can Upload the Images Of the Product For Sale."
+            message = "Welcome to UPLOAD TO WIN. Your account is sucessfuly created on UPLOAD TO WIN"
             yag = yagmail.SMTP('kumarrajenderkullu@gmail.com', 'luvmomdad11')
             yag.send(to=Email, subject='Upload to win', contents=message)
             ctypes.windll.user32.MessageBoxW(0, u"You are Successfully Registered.",
@@ -178,7 +177,7 @@ def comment_view(request):
             comment.save()
             email = comment.post.user.Email
             # sending welcome Email To User That Have Commented Successfully
-            message = "Hii!.. Someone Liked your Post on Upload To Win."
+            message = "Hii! Someone Comented on your Post on Upload To Win."
             yag = yagmail.SMTP('kumarrajenderkullu@gmail.com', 'luvmomdad11')
             yag.send(to=email, subject='Liked Your Post', contents=message)
             # TODO: ADD MESSAGE TO INDICATE SUCCESS
