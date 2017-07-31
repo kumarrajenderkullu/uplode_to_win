@@ -176,6 +176,11 @@ def comment_view(request):
             comment_text = form.cleaned_data.get('comment_text')
             comment = CommentModel.objects.create(user=user, post_id=post_id, comment_text=comment_text)
             comment.save()
+            email = comment.post.user.Email
+            # sending welcome Email To User That Have Commented Successfully
+            message = "Hii!.. Someone Liked your Post on Upload To Win."
+            yag = yagmail.SMTP('kumarrajenderkullu@gmail.com', 'luvmomdad11')
+            yag.send(to=email, subject='Liked Your Post', contents=message)
             # TODO: ADD MESSAGE TO INDICATE SUCCESS
             return redirect('/feed/')
         else:
